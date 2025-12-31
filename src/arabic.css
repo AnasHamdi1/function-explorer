@@ -1,0 +1,14 @@
+.header .logo {
+  margin-left: 10px;
+}
+
+.app .sidebar .expr__list .expr__item .expr__control,
+.app .sidebar .add-expr-item .expr__control {
+  border-right: none;
+  border-left: 1px var(--border) solid;
+}
+
+.app .canvas .canvas__ui .view__control {
+  right: unset;
+  left: 15px;
+}

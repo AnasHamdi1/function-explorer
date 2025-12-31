@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+
+    <!-- inter + IBM plex serif - google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Mathquill -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.9.1/mathquill.css"
+      integrity="sha512-Gh9jugVbw863/UnmBitmARROcOkrLhMqPqbMEqwB5nfLf6g/bDEWgvPmwTav9e/s5LOwsnRhjtPSq/3yQ0RDsg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1-a/mathquill.min.js"></script> -->
+
+    <!-- MathwLive -->
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/mathlive"></script> -->
+
+    <title>Function Explorer</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="d-flex container">
+        <div class="d-flex header__left">
+          <!-- src="./public/file.svg" -->
+          <a href="#" class="logo">
+            <img
+              src="./public/plot-logo-radial.png"
+              alt="Logo"
+              style="
+                width: 40px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                border-radius: 12px;
+                cursor: pointer;
+              "
+            />
+          </a>
+          <ul class="header__links d-flex">
+            <li>
+              <a href="#about" data-open="about">About</a>
+            </li>
+            <li>
+              <a href="#guide" data-open="guide">Guide</a>
+            </li>
+            <li>
+              <a href="#examples" data-open="examples">Examples</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header__right d-flex">
+          <ul class="header__links auth d-flex">
+            <li class="logout"><a href="#logout" data-logout>logout</a></li>
+            <li class="login"><a href="#login" data-open="login">login</a></li>
+            <li class="signup">
+              <a href="#signup" data-open="signup">sign up</a>
+            </li>
+          </ul>
+          <a href="ar.html" title="Switch to Arabic" class="switch-lang"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="app">
+      <div class="container">
+        <section class="sidebar">
+          <ul class="expr__list">
+            <!-- original -->
+            <!-- 
+            <li class="d-flex expr__item">
+              <div class="expr__control">
+                <span class="expr-control__btn" role="button" tabindex="0">
+                  <div class="graph__color"></div>
+                </span>
+              </div>
+              <div class="expr__form">
+                <input
+                  class="expr__input"
+                  type="text"
+                  name="expr__input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  placeholder="Enter e.g. sin(x), x² + 3x - 1"
+                />
+                <div
+                  class="expr__input"
+                  type="text"
+                  name="expr__input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  data-placeholder="Enter e.g. sin(x), x² + 3x - 1"
+                ></div>
+              </div>
+              <div class="expr__delete">
+                <span
+                  class="expr-delete__btn"
+                  title="Delete Expression"
+                  role="button"
+                  tabindex="0"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </li>  -->
+          </ul>
+          <div class="add-expr-item d-flex">
+            <div class="expr__control">
+              <span class="expr-control__btn" role="button" tabindex="0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="add-icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4.5v15m7.5-7.5h-15"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="pseudo__expr">
+              <div
+                class="pseudo-expr__input"
+                type="text"
+                aria-placeholder="Enter e.g. sin(x), x² + 3x - 1"
+              >
+                Enter e.g. sin(x), x^2 + 3x - 1
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="canvas">
+          <div id="plot" class="plot"></div>
+          <div class="canvas__ui">
+            <div class="view__control d-flex">
+              <div class="zoom-in-out d-flex">
+                <button class="zoom-in" title="Zoom In">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6"
+                    />
+                  </svg>
+                </button>
+                <button class="zoom-out" title="Zoom Out">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM13.5 10.5h-6"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <button class="view__reset" title="Reset View">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  />
+                </svg>
+              </button>
+              <button class="download" title="Download Plot As PNG">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div class="overlays-root">
+      <div class="examples-overlay overlay" data-overlay="examples">
+        <section class="examples-modal modal" role="dialoge" aria-modal="true">
+          <header class="examples-modal-header modal-header d-flex">
+            <h2 class="examples-modal-title modal-title">Examples</h2>
+            <button class="modal-close-btn" data-close="examples">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </header>
+          <div class="modal-body examples-modal__body">
+            <p
+              style="
+                text-align: center;
+                margin-block: 15px 30px;
+                color: var(--muted);
+              "
+            >
+              Sorry examples aren't available in English yet
+            </p>
+            <ul class="examples-list">
+              <!-- <li class="example-item">
+                <a href="#">
+                  <div class="exmaple-img">
+                    <img src="#" alt="example" />
+                  </div>
+                  <h3 class="example-title"></h3>
+                  <p class="example-description"></p>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="about-overlay overlay" data-overlay="about">
+        <section class="about-modal modal" role="dialoge" aria-modal="true">
+          <header class="about-modal-header modal-header d-flex">
+            <h2 class="about-modal-title modal-title">About</h2>
+            <button class="modal-close-btn" data-close="about">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </header>
+          <div class="modal-body about-modal__body">
+            <p
+              style="
+                text-align: center;
+                margin-block: 15px 30px;
+                color: var(--muted);
+              "
+            >
+              Sorry examples aren't available in English yet
+            </p>
+          </div>
+        </section>
+      </div>
+      <div class="guide-overlay overlay" data-overlay="guide">
+        <section class="guide-modal modal" role="dialoge" aria-modal="true">
+          <header class="guide-modal-header modal-header d-flex">
+            <h2 class="guide-modal-title modal-title">Guide</h2>
+            <button class="modal-close-btn" data-close="guide">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </header>
+          <div class="modal-body guide-modal__body"></div>
+        </section>
+      </div>
+      <div class="login-overlay overlay" data-overlay="login">
+        <section class="login-modal modal" role="dialoge" aria-modal="true">
+          <header class="login-modal-header modal-header d-flex">
+            <h2 class="login-modal-title modal-title">Login</h2>
+            <button class="modal-close-btn" data-close="login">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </header>
+          <div class="modal-body login-modal__body">
+            <header class="auth__header">
+              <h2 class="auth__title">Welcome Back</h2>
+              <p class="auth__subtitle">Log in to continue</p>
+            </header>
+
+            <form class="auth__form" data-login-form>
+              <div class="auth__field">
+                <label class="auth__label" for="login-email">Email</label>
+                <input
+                  class="auth__input"
+                  type="email"
+                  id="login-email"
+                  name="email"
+                  placeholder="name@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="auth__field">
+                <label class="auth__label" for="login-password">Password</label>
+                <input
+                  class="auth__input"
+                  type="password"
+                  id="login-password"
+                  name="password"
+                  placeholder="••••••••"
+                  autocomplete="current-password"
+                  required
+                />
+              </div>
+
+              <button class="auth__submit" type="submit">Log in</button>
+
+              <p class="auth__switch">
+                No account? <a href="#signup" data-open="signup">Create one</a>
+              </p>
+            </form>
+          </div>
+        </section>
+      </div>
+      <div class="signup-overlay overlay" data-overlay="signup">
+        <section class="signup-modal modal" role="dialoge" aria-modal="true">
+          <header class="signup-modal-header modal-header d-flex">
+            <h2 class="signup-modal-title modal-title">Signup</h2>
+            <button class="modal-close-btn" data-close="signup">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </header>
+          <div class="modal-body signup-modal__body">
+            <header class="auth__header">
+              <h2 class="auth__title">Create Account</h2>
+              <p class="auth__subtitle">Sign up to get started</p>
+            </header>
+
+            <form class="auth__form" data-signup-form>
+              <div class="auth__field">
+                <label class="auth__label" for="signup-email">Email</label>
+                <input
+                  class="auth__input"
+                  type="email"
+                  id="signup-email"
+                  name="email"
+                  placeholder="name@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="auth__field">
+                <label class="auth__label" for="signup-password"
+                  >Password</label
+                >
+                <input
+                  class="auth__input"
+                  type="password"
+                  id="signup-password"
+                  name="password"
+                  placeholder="At least 6 characters"
+                  autocomplete="new-password"
+                  minlength="6"
+                  required
+                />
+              </div>
+
+              <button class="auth__submit" type="submit">Sign up</button>
+
+              <p class="auth__switch">
+                Already have an account?
+                <a href="#login" data-open="login">Log in</a>
+              </p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
